@@ -1,0 +1,8 @@
+-if @found_tweets.any?
+  %ul.list-group.list-group-flush
+    = render partial: "tweet", collection: @found_tweets
+
+-elsif @query.present?
+  %p
+    = "No results for " +"\"" + @query + "\""
+

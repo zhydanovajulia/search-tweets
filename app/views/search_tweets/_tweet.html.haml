@@ -1,0 +1,20 @@
+%li.list-group-item.list-group-item-action
+  .row
+    .col-md-1
+      =image_tag tweet.user.profile_image_url.to_s, alt: "avatar", class: "rounded-circle"
+    .col-md-11
+      %ul.list-inline
+        %li.list-inline-item.font-weight-bold
+          =tweet.user.name
+        %li.list-inline-item.font-weight-light
+          = "@" + tweet.user.screen_name
+        %li.list-inline-item.badge
+          =time_ago_in_words(tweet.created_at)
+
+      =auto_link tweet.text
+
+      -if tweet.hashtags.any?
+        %ul.list-inline
+          - tweet.hashtags.each do |tag|
+            %li.list-inline-item.badge.badge-primary
+              = "#" + tag.text

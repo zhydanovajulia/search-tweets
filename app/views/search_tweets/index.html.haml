@@ -1,0 +1,12 @@
+.container
+  %h1
+    Twitter Search
+
+  #form_search
+    =render 'form_search'
+
+  #top_hashtags
+    =render 'hashtags', locals: @top_hashtags
+
+  #tweet_list
+    =render 'tweets_list', locals: [@found_tweets, @query]

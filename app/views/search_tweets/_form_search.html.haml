@@ -1,0 +1,14 @@
+= form_tag search_path, :method => :get, remote: true, class: "form-inline" do
+  = text_field_tag :query, "", placeholder: 'Search Phrase', class: "form-control mb-2 mr-sm-2"
+
+  .form-check.form-check-inline.mb-2.mr-sm-2
+    = radio_button_tag :result_type, "recent", true, class: "form-check-input"
+    = label_tag :result_type_recent, "recent", class: "form-check-label"
+  .form-check.form-check-inline.mb-2.mr-sm-2
+    = radio_button_tag :result_type, "mixed", false, class: 'form-check-input'
+    = label_tag :result_type_mixed, "mixed", class: "form-check-label"
+  .form-check.form-check-inline.mb-2.mr-sm-2
+    = radio_button_tag :result_type, "popular", false, class: 'form-check-input'
+    = label_tag :result_type_popular, "popular", class: "form-check-label"
+
+  = submit_tag "Search", name: nil, class: 'btn btn-primary mb-2'

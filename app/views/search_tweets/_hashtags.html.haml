@@ -1,0 +1,11 @@
+-if @top_hashtags.any?
+  .card-body
+    %h3 Top Hashtags
+
+    %ul.list-inline
+      - @top_hashtags.each do |key, value|
+        %li.list-inline-item.badge.badge-primary
+          =key
+          -if value > 1
+            %span.badge.badge-light
+              =value
