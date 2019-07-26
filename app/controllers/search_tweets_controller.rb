@@ -8,7 +8,8 @@ class SearchTweetsController < ApplicationController
     @query = search_params[:query]
 
     if @query.present?
-      @found_tweets = CLIENT.search(@query, result_type: search_params[:result_type]).take(100)
+      @found_tweets = CLIENT.search(@query, result_type: search_params[:result_type],
+                                   since: since_date, until: until_date).take(100)
       collect_hashtags
       hash_get_top_hashtags
     end
@@ -16,6 +17,14 @@ class SearchTweetsController < ApplicationController
 
 
   private
+
+  def since_date
+    (Time.now - 24.hours).strftime("%Y-%m-%d")
+  end
+
+  def until_date
+    Time.now.strftime("%Y-%m-%d")
+  end
 
   def search_params
     params.permit(:query, :result_type)
