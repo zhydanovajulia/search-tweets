@@ -1,6 +1,6 @@
 require 'twitter'
 
 CLIENT = Twitter::REST::Client.new do |config|
-  config.consumer_key    = "Da0h9oQNmoei2g9WcEyoHAuTP"
-  config.consumer_secret = "Lz654zMUMHxpRkfkDT3IPYBsdLHahg8RqA4HiRdMgqoURJZbXI"
+  config.consumer_key    = ENV["TWITTER_CONSUMER_KEY"]
+  config.consumer_secret = ENV["TWITTER_CONSUMER_SECRET"]
 end
