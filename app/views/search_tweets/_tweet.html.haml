@@ -8,6 +8,10 @@
           =tweet.user.name
         %li.list-inline-item.font-weight-light
           = "@" + tweet.user.screen_name
+        %li.list-inline-item.font-weight-light
+          ="❤" + tweet.favorite_count.to_s
+        %li.list-inline-item.font-weight-light
+          ="♺" + tweet.retweet_count.to_s
         %li.list-inline-item.badge
           =time_ago_in_words(tweet.created_at)
 
